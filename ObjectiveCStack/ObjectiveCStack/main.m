@@ -2,7 +2,7 @@
 //  main.m
 //  ObjectiveCStack
 //
-//  Created by Brooke Czerwinski on 9/7/23.
+//  Created by Czer on 9/7/23.
 //
 
 #import <Foundation/Foundation.h>
