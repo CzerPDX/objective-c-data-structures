@@ -10,6 +10,7 @@
 		B93895852AABCE1F0018EE80 /* LinkedListNode.h in Sources */ = {isa = PBXBuildFile; fileRef = B93895842AABCE1F0018EE80 /* LinkedListNode.h */; };
 		B938958E2AABDB6D0018EE80 /* LinkedListNode.m in Sources */ = {isa = PBXBuildFile; fileRef = B938958D2AABDB6D0018EE80 /* LinkedListNode.m */; };
 		B93895922AABDD0E0018EE80 /* ManualStack.h in Sources */ = {isa = PBXBuildFile; fileRef = B93895912AABDD0E0018EE80 /* ManualStack.h */; };
+		B93895952AABDE220018EE80 /* ManualStack.m in Sources */ = {isa = PBXBuildFile; fileRef = B93895942AABDE220018EE80 /* ManualStack.m */; };
 		B947E5C62AAA82C800445B67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B947E5C52AAA82C800445B67 /* main.m */; };
 		B947E5CF2AAA8D8600445B67 /* IdiomaticStack.h in Sources */ = {isa = PBXBuildFile; fileRef = B947E5CE2AAA8D8600445B67 /* IdiomaticStack.h */; };
 		B947E5D72AAA99FD00445B67 /* IdiomaticStack.m in Sources */ = {isa = PBXBuildFile; fileRef = B947E5D62AAA99FD00445B67 /* IdiomaticStack.m */; };
@@ -31,6 +32,7 @@
 		B93895842AABCE1F0018EE80 /* LinkedListNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkedListNode.h; sourceTree = "<group>"; };
 		B938958D2AABDB6D0018EE80 /* LinkedListNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LinkedListNode.m; path = ObjectiveCDataStructures/LinkedListNode.m; sourceTree = SOURCE_ROOT; };
 		B93895912AABDD0E0018EE80 /* ManualStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManualStack.h; sourceTree = "<group>"; };
+		B93895942AABDE220018EE80 /* ManualStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManualStack.m; sourceTree = "<group>"; };
 		B947E5C22AAA82C800445B67 /* ObjectiveCDataStructures */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjectiveCDataStructures; sourceTree = BUILT_PRODUCTS_DIR; };
 		B947E5C52AAA82C800445B67 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B947E5CE2AAA8D8600445B67 /* IdiomaticStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IdiomaticStack.h; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 				B947E5CE2AAA8D8600445B67 /* IdiomaticStack.h */,
 				B947E5D62AAA99FD00445B67 /* IdiomaticStack.m */,
 				B93895912AABDD0E0018EE80 /* ManualStack.h */,
+				B93895942AABDE220018EE80 /* ManualStack.m */,
 			);
 			path = Stacks;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			files = (
 				B93895852AABCE1F0018EE80 /* LinkedListNode.h in Sources */,
 				B947E5D72AAA99FD00445B67 /* IdiomaticStack.m in Sources */,
+				B93895952AABDE220018EE80 /* ManualStack.m in Sources */,
 				B947E5CF2AAA8D8600445B67 /* IdiomaticStack.h in Sources */,
 				B938958E2AABDB6D0018EE80 /* LinkedListNode.m in Sources */,
 				B93895922AABDD0E0018EE80 /* ManualStack.h in Sources */,

@@ -36,4 +36,4 @@ The implementation of this stack makes use of the `NSMutableArray` class and imi
 #### `ManualStack`
 The implementation of this stack is rebuilding the wheel. I implemented this version in order to learn more about how Objective-C works at a lower level. This version includes:
 - A `LinkedListNode` class to manage linked list nodes (will be able to be reused for a linked list class, or anything else that needs a singly-linked list). This class is built more akin to a C++ `struct` rather than a normal class, as it does not manage its own data members/properties (they are public/declared in the header). However, I did not want to use an actual struct because I believe that wouldn't adhere to standard Objective-C practices.
-- a `ManualStack` class that manages head pointer and a linked list of LinkedListNodes.
+- a `ManualStack` class that manages head pointer to a list of LinkedListNodes.
