@@ -1,7 +1,9 @@
 # objective-c-data-structures
 A series of data structures I'm creating to start learning `Objective-C` using `Xcode` as an IDE in a `MacOS` environment!
 
-These are created in ways that are "reinventing the wheel" so I am able to get a fuller understanding of the language.
+Each data structure will have two versions:
+- **"Idiomatic" version:** Utilizes Objective-C's built-in features for efficient data management, helping me grasp the language's standard practices.
+- **"Reinventing the Wheel" version:** Constructs the data structures from scratch, offering a deeper dive into the language's fundamentals.
 
 ## Development Environment
 Due to the constraints of developing on a late 2012 iMac, some of my code may incorporate older practices or APIs. For clarity and transparency, I've outlined my development environment details below.
