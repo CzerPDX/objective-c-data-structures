@@ -7,7 +7,7 @@
 
 #import "IdiomaticStack.h"
 
-// Cass extension for the private data members and methods
+// Class extension for the private data members and methods
 @interface IdiomaticStack ()
 // Pointer to the mutable array where the stack objects will be stored
 @property (nonatomic, strong) NSMutableArray *stackItems;
