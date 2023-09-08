@@ -34,4 +34,4 @@ OSX Catalina 10.15.7
 The implementation of this stack makes use of the `NSMutableArray` class and imitates the functionality of a stack.
 
 #### `ManualStack`
-The implementation of this stack is sorta rebuilding the wheel. I implemented this version in order to learn more about how Objective-C works at a lower level.
+The implementation of this stack is rebuilding the wheel. I implemented this version in order to learn more about how Objective-C works at a lower level.

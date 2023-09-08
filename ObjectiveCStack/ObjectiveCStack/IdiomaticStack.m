@@ -61,7 +61,7 @@
     return isStackEmpty;
 }
 
-
+	
 // NOTE: Data members are marked as nonatomic to remove overhead from locking/unlocking as this class is not expected to be used in a parallel processing environment and should only be accessed by one thread at a time.
 
 @end
