@@ -1,6 +1,8 @@
 # objective-c-data-structures
 A series of data structures I'm creating to start learning `Objective-C` using `Xcode` as an IDE in a `MacOS` environment!
 
+These are created in ways that are "reinventing the wheel" so I am able to get a fuller understanding of the language.
+
 ## Development Environment
 Due to the constraints of developing on a late 2012 iMac, some of my code may incorporate older practices or APIs. For clarity and transparency, I've outlined my development environment details below.
 
@@ -24,5 +26,10 @@ OSX Catalina 10.15.7
 
 ## Data Structures Included
 
-### Stack
-Located in the `ObjectiveCStack` directory.
+### Stacks
+
+#### `IdiomaticStack`
+The implementation of this stack makes use of the `NSMutableArray` class and imitates the functionality of a stack.
+
+#### `ManualStack`
+The implementation of this stack is sorta rebuilding the wheel. I implemented this version in order to learn more about how Objective-C works at a lower level.
