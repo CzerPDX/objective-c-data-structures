@@ -44,6 +44,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B938958B2AABD8A40018EE80 /* Stacks */ = {
+			isa = PBXGroup;
+			children = (
+				B947E5CE2AAA8D8600445B67 /* IdiomaticStack.h */,
+				B947E5D62AAA99FD00445B67 /* IdiomaticStack.m */,
+				B93895842AABCE1F0018EE80 /* LinkedListNode.h */,
+			);
+			path = Stacks;
+			sourceTree = "<group>";
+		};
 		B947E5B92AAA82C800445B67 = {
 			isa = PBXGroup;
 			children = (
@@ -63,10 +73,8 @@
 		B947E5C42AAA82C800445B67 /* ObjectiveCDataStructures */ = {
 			isa = PBXGroup;
 			children = (
+				B938958B2AABD8A40018EE80 /* Stacks */,
 				B947E5C52AAA82C800445B67 /* main.m */,
-				B947E5CE2AAA8D8600445B67 /* IdiomaticStack.h */,
-				B947E5D62AAA99FD00445B67 /* IdiomaticStack.m */,
-				B93895842AABCE1F0018EE80 /* LinkedListNode.h */,
 			);
 			path = ObjectiveCDataStructures;
 			sourceTree = "<group>";

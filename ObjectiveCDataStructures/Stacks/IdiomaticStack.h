@@ -17,34 +17,20 @@
 
 
 // Push a generic object onto the stack
-/*
- Return type: void
- 
- Parameters:
-    item
-        datatype: id
-        Used id type so the stack can hold any type of object as id is the generic object type in objective-c
- */
+// Return type: void
+// Parameter type: id (pointer to any Objective-C object)
 - (void)push:(id)item;
 
 // Pop an item off the top of the stack. Removes an item from the top of the stack.
-/*
- Return type: id
-    Returns the object popped off the stack
- */
+// Return type: id (pointer to any Objective-C object)
 - (id)pop;
 
 // Peek at the item on the top of the stack without removing it.
-/*
- Return type: id
-    Returns a reference to the item on the top of the stack.
- */
+// Return type: id (pointer to any Objective-C object)
 - (id)peek;
 
 // Returns true if stack is empty and false if stack has objects in it
-/*
- Return type: BOOL
- */
+// Return type: BOOL
 - (BOOL)isEmpty;
 
 @end
