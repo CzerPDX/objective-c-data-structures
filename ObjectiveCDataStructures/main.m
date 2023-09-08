@@ -6,12 +6,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IdiomaticStack.h"
+#import "ManualStack.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // Declare the idiomatic stack object
-        IdiomaticStack *aIdiomaticStack = [[IdiomaticStack alloc] init];
+        ManualStack *aIdiomaticStack = [[ManualStack alloc] init];
         
         // Add some literals to the idiomatic stack
         [aIdiomaticStack push:@1];

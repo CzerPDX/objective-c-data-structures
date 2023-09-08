@@ -10,9 +10,10 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "StackProtocol.h"
 
 // Define the interface for the stack data structure
-@interface IdiomaticStack : NSObject
+@interface IdiomaticStack : NSObject <StackProtocol>
 
 
 

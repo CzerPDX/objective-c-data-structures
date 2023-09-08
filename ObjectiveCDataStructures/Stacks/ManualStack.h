@@ -10,9 +10,10 @@
  */
 
 #import "LinkedListNode.h"
+#import "StackProtocol.h"
 
 // Create the manual stack as a child class of NSObject
-@interface ManualStack : NSObject
+@interface ManualStack : NSObject <StackProtocol>
 
 // Push a generic object onto the stack
 // Return type: void
