@@ -14,6 +14,13 @@
 		B947E5C62AAA82C800445B67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B947E5C52AAA82C800445B67 /* main.m */; };
 		B947E5CF2AAA8D8600445B67 /* IdiomaticStack.h in Sources */ = {isa = PBXBuildFile; fileRef = B947E5CE2AAA8D8600445B67 /* IdiomaticStack.h */; };
 		B947E5D72AAA99FD00445B67 /* IdiomaticStack.m in Sources */ = {isa = PBXBuildFile; fileRef = B947E5D62AAA99FD00445B67 /* IdiomaticStack.m */; };
+		B96F97B62AAFD627009E3896 /* IdiomaticStack.m in Sources */ = {isa = PBXBuildFile; fileRef = B947E5D62AAA99FD00445B67 /* IdiomaticStack.m */; };
+		B96F97B92AAFD629009E3896 /* ManualStack.m in Sources */ = {isa = PBXBuildFile; fileRef = B93895942AABDE220018EE80 /* ManualStack.m */; };
+		B96F97BC2AAFD62B009E3896 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B947E5C52AAA82C800445B67 /* main.m */; };
+		B96F97BF2AAFD631009E3896 /* LinkedListNode.m in Sources */ = {isa = PBXBuildFile; fileRef = B938958D2AABDB6D0018EE80 /* LinkedListNode.m */; };
+		B96F97C32AAFD680009E3896 /* BaseStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B96F97C22AAFD680009E3896 /* BaseStackTests.m */; };
+		B96F97C92AAFD6AF009E3896 /* IdiomaticStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B96F97C82AAFD6AF009E3896 /* IdiomaticStackTests.m */; };
+		B96F97D12AAFD7D1009E3896 /* ManualStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B96F97D02AAFD7D1009E3896 /* ManualStackTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,10 +45,23 @@
 		B947E5C52AAA82C800445B67 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B947E5CE2AAA8D8600445B67 /* IdiomaticStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IdiomaticStack.h; sourceTree = "<group>"; };
 		B947E5D62AAA99FD00445B67 /* IdiomaticStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IdiomaticStack.m; sourceTree = "<group>"; };
+		B96F97A12AAFD5CB009E3896 /* ObjectiveCDataStructuresTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjectiveCDataStructuresTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B96F97A52AAFD5CB009E3896 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B96F97C22AAFD680009E3896 /* BaseStackTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseStackTests.m; sourceTree = "<group>"; };
+		B96F97C82AAFD6AF009E3896 /* IdiomaticStackTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IdiomaticStackTests.m; sourceTree = "<group>"; };
+		B96F97CD2AAFD766009E3896 /* BaseStackTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseStackTests.h; sourceTree = "<group>"; };
+		B96F97D02AAFD7D1009E3896 /* ManualStackTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManualStackTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		B947E5BF2AAA82C800445B67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B96F979E2AAFD5CB009E3896 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -67,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				B947E5C42AAA82C800445B67 /* ObjectiveCDataStructures */,
+				B96F97A22AAFD5CB009E3896 /* ObjectiveCDataStructuresTests */,
 				B947E5C32AAA82C800445B67 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				B947E5C22AAA82C800445B67 /* ObjectiveCDataStructures */,
+				B96F97A12AAFD5CB009E3896 /* ObjectiveCDataStructuresTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,6 +110,18 @@
 				B947E5C52AAA82C800445B67 /* main.m */,
 			);
 			path = ObjectiveCDataStructures;
+			sourceTree = "<group>";
+		};
+		B96F97A22AAFD5CB009E3896 /* ObjectiveCDataStructuresTests */ = {
+			isa = PBXGroup;
+			children = (
+				B96F97A52AAFD5CB009E3896 /* Info.plist */,
+				B96F97C22AAFD680009E3896 /* BaseStackTests.m */,
+				B96F97CD2AAFD766009E3896 /* BaseStackTests.h */,
+				B96F97C82AAFD6AF009E3896 /* IdiomaticStackTests.m */,
+				B96F97D02AAFD7D1009E3896 /* ManualStackTests.m */,
+			);
+			path = ObjectiveCDataStructuresTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,6 +144,23 @@
 			productReference = B947E5C22AAA82C800445B67 /* ObjectiveCDataStructures */;
 			productType = "com.apple.product-type.tool";
 		};
+		B96F97A02AAFD5CB009E3896 /* ObjectiveCDataStructuresTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B96F97A62AAFD5CB009E3896 /* Build configuration list for PBXNativeTarget "ObjectiveCDataStructuresTests" */;
+			buildPhases = (
+				B96F979D2AAFD5CB009E3896 /* Sources */,
+				B96F979E2AAFD5CB009E3896 /* Frameworks */,
+				B96F979F2AAFD5CB009E3896 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ObjectiveCDataStructuresTests;
+			productName = ObjectiveCDataStructuresTests;
+			productReference = B96F97A12AAFD5CB009E3896 /* ObjectiveCDataStructuresTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -119,6 +170,9 @@
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					B947E5C12AAA82C800445B67 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					B96F97A02AAFD5CB009E3896 = {
 						CreatedOnToolsVersion = 12.4;
 					};
 				};
@@ -137,9 +191,20 @@
 			projectRoot = "";
 			targets = (
 				B947E5C12AAA82C800445B67 /* ObjectiveCDataStructures */,
+				B96F97A02AAFD5CB009E3896 /* ObjectiveCDataStructuresTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B96F979F2AAFD5CB009E3896 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B947E5BE2AAA82C800445B67 /* Sources */ = {
@@ -153,6 +218,20 @@
 				B938958E2AABDB6D0018EE80 /* LinkedListNode.m in Sources */,
 				B93895922AABDD0E0018EE80 /* ManualStack.h in Sources */,
 				B947E5C62AAA82C800445B67 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B96F979D2AAFD5CB009E3896 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B96F97B62AAFD627009E3896 /* IdiomaticStack.m in Sources */,
+				B96F97C32AAFD680009E3896 /* BaseStackTests.m in Sources */,
+				B96F97C92AAFD6AF009E3896 /* IdiomaticStackTests.m in Sources */,
+				B96F97D12AAFD7D1009E3896 /* ManualStackTests.m in Sources */,
+				B96F97B92AAFD629009E3896 /* ManualStack.m in Sources */,
+				B96F97BC2AAFD62B009E3896 /* main.m in Sources */,
+				B96F97BF2AAFD631009E3896 /* LinkedListNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +334,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -290,6 +370,40 @@
 			};
 			name = Release;
 		};
+		B96F97A72AAFD5CB009E3896 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Z5W8B4D54J;
+				INFOPLIST_FILE = ObjectiveCDataStructuresTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.czer.ObjectiveCDataStructuresTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B96F97A82AAFD5CB009E3896 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Z5W8B4D54J;
+				INFOPLIST_FILE = ObjectiveCDataStructuresTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.czer.ObjectiveCDataStructuresTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -307,6 +421,15 @@
 			buildConfigurations = (
 				B947E5CA2AAA82C900445B67 /* Debug */,
 				B947E5CB2AAA82C900445B67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B96F97A62AAFD5CB009E3896 /* Build configuration list for PBXNativeTarget "ObjectiveCDataStructuresTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B96F97A72AAFD5CB009E3896 /* Debug */,
+				B96F97A82AAFD5CB009E3896 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

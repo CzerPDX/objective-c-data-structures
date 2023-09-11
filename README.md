@@ -13,6 +13,9 @@ Constructs the data structures from scratch (without delving into C++ territory)
 ### Protocols
 In addition, each data structure will have a `protocol` to keep their interfaces aligned with one another.
 
+### Testing
+Testing will be done using `Xcode`'s [`XCTest` framework](https://developer.apple.com/documentation/xctest).
+
 ## Data Structures Included
 
 ### General/Multipurpose
