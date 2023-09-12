@@ -1,45 +1,25 @@
 # objective-c-data-structures
-A series of data structures I'm creating to start learning `Objective-C` using `Xcode` as an IDE in a `MacOS` environment.
+This `Objective-C` program implements two stacks that use the same `protocol` (so they both have the same interface):
+```
+@protocol StackProtocol <NSObject>
 
-## Approach to each Data Structure
-Each data structure will have two versions:
+- (void)push:(id)item;
+- (id)pop;
+- (id)peek;
+- (BOOL)isEmpty;
 
-### Idiomatic version
-Utilizes Objective-C's built-in features for efficient data management, helping me grasp the language's standard practices.
+@end
+```
 
-### Manual version
-Constructs the data structures from scratch (without delving into C++ territory) and "reinvents the wheel" a bit so I can get a deeper dive into Objective-C fundamentals.
+### IdiomaticStack
+The first stack (called `IdiomaticStack`) uses `NSMutableArray` and that object's methods such as `addObject`, `removeLastObject`, and `lastObject` to essentially mimic the functionality of a stack.  
 
-### Protocols
-In addition, each data structure will have a `protocol` to keep their interfaces aligned with one another.
+### ManualStack
+The second stack (called `ManualStack`) uses a `LinkedListNode` class that I wrote to hold `id`-type-data and implements the functions of the stack more manually. It extend Objective-C's `NSObject` NS classes and uses Objective-C's memory management (via `autoreleasepool`) rather than C++'s more manual memory management.
 
 ### Testing
-Testing will be done using `Xcode`'s [`XCTest` framework](https://developer.apple.com/documentation/xctest).
+I also implemented a test for these stacks that uses `XCTest`. I created a base class called `BaseStackTests` that overrides the `testInvocations` method of `XCTestCase` so that the base class does not call its own test functions. This is important because `testStack` (the instance of whatever stack is being tested) is only initialized in two subclasses: `IdiomaticStackTests` and `ManualStackTests`. `TestStack` (the object that holds whatever stack is being tested) is expected to adhere to the `StackProtocol` that can be found in `StackProtocol.h`. In this way I was able to write a single set of tests for both classes.
 
-## Data Structures Included
-
-### General/Multipurpose
-Nodes or other general purpose parts that are reused in multiple data structures.
-
-#### LinkedListNode
-The `LinkedListNode` class holds the data for singly-linked list nodes. This class is built more akin to a C++ `struct` rather than a normal class, as it does not manage its own data members/properties (they are public/declared in the header).
-
-### Stacks
-These stacks work in a standard way. 
-- Follows LIFO (last in, first out)
-- There is no search functionality.
-
-#### `IdiomaticStack`
-The implementation of this stack makes use of the `NSMutableArray` class and imitates the functionality of a stack without manually managing a head pointer or creating any kind of node class
-
-#### `ManualStack`
-The implementation uses a `head` poitner to the start of a linked list (uses the `LinkedListNode` class). Adding and removing items from the stack is done manually and objects are returned after being grabbed from within the node at the head.
-
-### Queues
-Placeholder for queues section
-
-### Hash Tables
-Placeholder for hash tables section
 
 ## Development Environment
 Due to the constraints of developing on a late 2012 iMac, some of my code may incorporate older practices or APIs. For clarity and transparency, I've outlined my development environment details below.
