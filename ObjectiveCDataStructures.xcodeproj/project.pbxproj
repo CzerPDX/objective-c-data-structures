@@ -21,6 +21,7 @@
 		B96F97C32AAFD680009E3896 /* BaseStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B96F97C22AAFD680009E3896 /* BaseStackTests.m */; };
 		B96F97C92AAFD6AF009E3896 /* IdiomaticStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B96F97C82AAFD6AF009E3896 /* IdiomaticStackTests.m */; };
 		B96F97D12AAFD7D1009E3896 /* ManualStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B96F97D02AAFD7D1009E3896 /* ManualStackTests.m */; };
+		B96F97EE2AB127BF009E3896 /* BinaryTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = B96F97ED2AB127BF009E3896 /* BinaryTreeNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +52,8 @@
 		B96F97C82AAFD6AF009E3896 /* IdiomaticStackTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IdiomaticStackTests.m; sourceTree = "<group>"; };
 		B96F97CD2AAFD766009E3896 /* BaseStackTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseStackTests.h; sourceTree = "<group>"; };
 		B96F97D02AAFD7D1009E3896 /* ManualStackTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManualStackTests.m; sourceTree = "<group>"; };
+		B96F97EA2AB1273D009E3896 /* BinaryTreeNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinaryTreeNode.h; sourceTree = "<group>"; };
+		B96F97ED2AB127BF009E3896 /* BinaryTreeNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BinaryTreeNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,9 @@
 				B93895842AABCE1F0018EE80 /* LinkedListNode.h */,
 				B938958B2AABD8A40018EE80 /* Stacks */,
 				B947E5C52AAA82C800445B67 /* main.m */,
+				B96F97EA2AB1273D009E3896 /* BinaryTreeNode.h */,
+				B96F97ED2AB127BF009E3896 /* BinaryTreeNode.m */,
+				B96F97F12AB1286D009E3896 /* Trees */,
 			);
 			path = ObjectiveCDataStructures;
 			sourceTree = "<group>";
@@ -122,6 +128,13 @@
 				B96F97D02AAFD7D1009E3896 /* ManualStackTests.m */,
 			);
 			path = ObjectiveCDataStructuresTests;
+			sourceTree = "<group>";
+		};
+		B96F97F12AB1286D009E3896 /* Trees */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Trees;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +230,7 @@
 				B947E5CF2AAA8D8600445B67 /* IdiomaticStack.h in Sources */,
 				B938958E2AABDB6D0018EE80 /* LinkedListNode.m in Sources */,
 				B93895922AABDD0E0018EE80 /* ManualStack.h in Sources */,
+				B96F97EE2AB127BF009E3896 /* BinaryTreeNode.m in Sources */,
 				B947E5C62AAA82C800445B67 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
