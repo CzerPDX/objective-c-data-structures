@@ -29,8 +29,8 @@ All binary trees that are added use the same `protocol`:
 ```
 @protocol BinaryTreeProtocol <NSObject>
 
-- (BinaryTreeAddObjectIDResult)addObjectID:(NSInteger)objectID andObjectData:(id)objectData);
-- (BinaryTreeDeleteObjectIDResult)deleteObjectID:(NSInteger)objectID;
+- (void)addObjectID:(NSInteger)objectID andObjectData:(id)objectData);
+- (void)deleteObjectID:(NSInteger)objectID;
 - (void)printInorder;
 - (void)printPreorder;
 - (void)printPostorder;
@@ -41,8 +41,6 @@ All trees also use the same `BinaryTreeNode` class which consists of four data m
 - **`objectID`**: a `NSInteger` datatype that holds the objects ID. This is the data that organizes the binary tree
 - **`dataObject`**: an `id` generic pointer to any `NSObject`-based object in Objective-C. (I think this could be replaced in a subclassed node class with a more-specific datatype, but for now generic pointer to an object will suffice as I try to keep it simple)
 - **`left`** and **`right`**: pointers to other `BinaryTreeNode` objects (left and right children)
-
-And finally, all trees use a pair of enum sets (`BinaryTreeAddObjectIDResult` and `BinaryTreeDeleteObjectIDResult`) for the results from adding and deleting nodes to the binary tree. These are seen in the above protocol as the return values from both `addObjectID` and `deleteObjectID`.
 
 So far, only one binary tree is in-progress (`UnbalancedBinaryTree`) (though more are planned and this README should be updated as they're added)
 

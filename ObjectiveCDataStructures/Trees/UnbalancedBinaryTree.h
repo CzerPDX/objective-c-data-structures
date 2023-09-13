@@ -1,16 +1,15 @@
 //
-//  BinaryTreeProtocol.h
+//  UnbalancedBinaryTree.h
 //  ObjectiveCDataStructures
 //
 //  Created by Czer on 9/12/23.
 //
 
-#import <Foundation/Foundation.h>
+#import "LinkedListNode.h"
+#import "BinaryTreeProtocol.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
-// Protocol that defines the interface for all binary trees
-@protocol BinaryTreeProtocol <NSObject>
+// Create the manual stack as a child class of NSObject
+@interface UnbalancedBinaryTree : NSObject <BinaryTreeProtocol>
 
 - (void)addObjectID:(NSInteger)objectID andObjectData:(id)objectData);
 - (void)deleteObjectID:(NSInteger)objectID;
@@ -18,6 +17,5 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)printPreorder;
 - (void)printPostorder;
 - (id)searchForObjectID:(NSInteger *)objectID;
-@end
 
-NS_ASSUME_NONNULL_END
+@end

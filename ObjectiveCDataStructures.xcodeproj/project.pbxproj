@@ -55,6 +55,7 @@
 		B96F97EA2AB1273D009E3896 /* BinaryTreeNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinaryTreeNode.h; sourceTree = "<group>"; };
 		B96F97ED2AB127BF009E3896 /* BinaryTreeNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BinaryTreeNode.m; sourceTree = "<group>"; };
 		B96F97F82AB14923009E3896 /* BinaryTreeProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinaryTreeProtocol.h; sourceTree = "<group>"; };
+		B96F97FC2AB16283009E3896 /* UnbalancedBinaryTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnbalancedBinaryTree.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +136,7 @@
 				B96F97EA2AB1273D009E3896 /* BinaryTreeNode.h */,
 				B96F97ED2AB127BF009E3896 /* BinaryTreeNode.m */,
 				B96F97F82AB14923009E3896 /* BinaryTreeProtocol.h */,
+				B96F97FC2AB16283009E3896 /* UnbalancedBinaryTree.h */,
 			);
 			path = Trees;
 			sourceTree = "<group>";
