@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, BinaryTreeAddObjectIDResult) {
 typedef NS_ENUM(NSInteger, BinaryTreeDeleteObjectIDResult) {
     BinaryTreeDeleteObjectIDResultSuccess,
     BinaryTreeDeleteObjectIDResultFailure,
-    BinaryTreeDeleteObjectIDesultDoesNotExist
+    BinaryTreeDeleteObjectIDResultDoesNotExist
 }
 
 // Protocol that defines the interface for all binary trees
