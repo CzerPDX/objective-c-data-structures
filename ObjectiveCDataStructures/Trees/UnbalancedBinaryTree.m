@@ -5,6 +5,11 @@
 //  Created by Czer on 9/12/23.
 //
 
+/*
+ Public functions return void but will output success/failure message and/or print the tree
+ Recursive functions are private and listed above the public functions they are called in. They return a BOOL for success/failure
+ */
+
 #import "UnbalancedBinaryTree.h"
 
 // Private data members
@@ -27,8 +32,23 @@
     return self;
 }
 
-
-- (BOOL)addObjectIDRecursive:(BinaryTreeNode *)newNode {
+// Compare the objectID from the current node to the newNode. Lower values go left, higher values go right
+// If the values are the same then don't add the node. No duplicates allowed
+- (BOOL)addNewNodeRecursively:(BinaryTreeNode *)newNode throughCurrentNode:(BinaryTreeNode *)currentNode {
+    // Base cases
+    // newNode has lower value and left child is nil
+        // Set newNode to left child
+        // Return true
+    // newNode has higher value and right child is nil
+        // Set newNode to right child
+        // Return true
+    // newNode has same value
+        // Return false
+    
+    // newNode has lower value and left child is not nil
+        // call addNewNodeRecursively:throughCurrentNode: with left child as currentNode
+    // newNode has higher value and right child is not nil
+        // call addNewNodeRecursively:throughCurrentNode: with right child as currentNode
     return YES;
 }
 
