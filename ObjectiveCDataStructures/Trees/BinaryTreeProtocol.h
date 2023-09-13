@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Protocol that defines the interface for all binary trees
 @protocol BinaryTreeProtocol <NSObject>
 
-- (void)addObjectID:(NSInteger)objectID andObjectData:(id)objectData);
+- (void)addObjectID:(NSInteger)objectID andObjectData:(id)objectData;
 - (void)deleteObjectID:(NSInteger)objectID;
 - (void)printInorder;
 - (void)printPreorder;
