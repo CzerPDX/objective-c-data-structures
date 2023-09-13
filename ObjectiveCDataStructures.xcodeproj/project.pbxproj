@@ -38,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		B93895842AABCE1F0018EE80 /* LinkedListNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkedListNode.h; sourceTree = "<group>"; };
-		B938958D2AABDB6D0018EE80 /* LinkedListNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LinkedListNode.m; path = ObjectiveCDataStructures/LinkedListNode.m; sourceTree = SOURCE_ROOT; };
+		B938958D2AABDB6D0018EE80 /* LinkedListNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LinkedListNode.m; path = ObjectiveCDataStructures/Stacks/LinkedListNode.m; sourceTree = SOURCE_ROOT; };
 		B93895912AABDD0E0018EE80 /* ManualStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManualStack.h; sourceTree = "<group>"; };
 		B93895942AABDE220018EE80 /* ManualStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManualStack.m; sourceTree = "<group>"; };
 		B93895972AABEBD60018EE80 /* StackProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StackProtocol.h; sourceTree = "<group>"; };
@@ -54,6 +54,7 @@
 		B96F97D02AAFD7D1009E3896 /* ManualStackTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManualStackTests.m; sourceTree = "<group>"; };
 		B96F97EA2AB1273D009E3896 /* BinaryTreeNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinaryTreeNode.h; sourceTree = "<group>"; };
 		B96F97ED2AB127BF009E3896 /* BinaryTreeNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BinaryTreeNode.m; sourceTree = "<group>"; };
+		B96F97F82AB14923009E3896 /* BinaryTreeProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinaryTreeProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +78,8 @@
 		B938958B2AABD8A40018EE80 /* Stacks */ = {
 			isa = PBXGroup;
 			children = (
+				B938958D2AABDB6D0018EE80 /* LinkedListNode.m */,
+				B93895842AABCE1F0018EE80 /* LinkedListNode.h */,
 				B947E5CE2AAA8D8600445B67 /* IdiomaticStack.h */,
 				B947E5D62AAA99FD00445B67 /* IdiomaticStack.m */,
 				B93895912AABDD0E0018EE80 /* ManualStack.h */,
@@ -107,12 +110,8 @@
 		B947E5C42AAA82C800445B67 /* ObjectiveCDataStructures */ = {
 			isa = PBXGroup;
 			children = (
-				B938958D2AABDB6D0018EE80 /* LinkedListNode.m */,
-				B93895842AABCE1F0018EE80 /* LinkedListNode.h */,
 				B938958B2AABD8A40018EE80 /* Stacks */,
 				B947E5C52AAA82C800445B67 /* main.m */,
-				B96F97EA2AB1273D009E3896 /* BinaryTreeNode.h */,
-				B96F97ED2AB127BF009E3896 /* BinaryTreeNode.m */,
 				B96F97F12AB1286D009E3896 /* Trees */,
 			);
 			path = ObjectiveCDataStructures;
@@ -133,6 +132,9 @@
 		B96F97F12AB1286D009E3896 /* Trees */ = {
 			isa = PBXGroup;
 			children = (
+				B96F97EA2AB1273D009E3896 /* BinaryTreeNode.h */,
+				B96F97ED2AB127BF009E3896 /* BinaryTreeNode.m */,
+				B96F97F82AB14923009E3896 /* BinaryTreeProtocol.h */,
 			);
 			path = Trees;
 			sourceTree = "<group>";

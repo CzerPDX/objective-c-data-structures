@@ -36,7 +36,7 @@
 // Return the item on the top of the stack if it exists and remove it from the stack
 - (id)pop {
     // Set lastItem to the item on the top of the stack (if there is one)
-    id lastItem = [self.stackItems lastObject];\
+    id lastItem = [self.stackItems lastObject];
     
     // If lastItem has a value (if the stack wasn't empty) remove it from the stack
     if (lastItem) {
