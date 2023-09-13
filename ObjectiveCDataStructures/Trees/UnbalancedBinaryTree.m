@@ -32,31 +32,65 @@
     return self;
 }
 
+// Returns true if node was successfully added by this version or by any previous version
 // Compare the objectID from the current node to the newNode. Lower values go left, higher values go right
-// If the values are the same then don't add the node. No duplicates allowed
+// If the values are the same then don't add the node and return "NO". No duplicates allowed.
+// This function should use tail recursion if it is an option in the compiler (which is why early returns are used here)
 - (BOOL)addNewNodeRecursively:(BinaryTreeNode *)newNode throughCurrentNode:(BinaryTreeNode *)currentNode {
-    // Base cases
-    // newNode has lower value and left child is nil
-        // Set newNode to left child
-        // Return true
-    // newNode has higher value and right child is nil
-        // Set newNode to right child
-        // Return true
-    // newNode has same value
-        // Return false
+    // If the newNode's objectID is lower than currentNode's objectID, go left
+    if (newNode.objectID < currentNode.objectID) {
+        // If the left child is nil set the current node's left pointer to the new node
+        if (!currentNode.left) {
+            // Set newNode to left child and return YEStrue
+            currentNode.left = newNode;
+            return YES;
+        }
+        // Otherwise, call addNewNodeRecursively:throughCurrentNode with left child as current node
+        else {
+            return [self addNewNodeRecursively:newNode throughCurrentNode:currentNode.left];
+        }
+    }
+    // If the newNode's objectID is higher than currentNode's objectID, go right
+    else if (newNode.objectID > currentNode.objectID) {
+        // If the right child is nil set the current node's right pointer to the new node
+        if (!currentNode.right) {
+            // Set newNode to right child and return YES/true
+            currentNode.right = newNode;
+            return YES;
+        }
+        // Otherwise, call addNewNodeRecursively:throughCurrentNode with right child as current node
+        else {
+            return [self addNewNodeRecursively:newNode throughCurrentNode:currentNode.right];
+        }
+    }
     
-    // newNode has lower value and left child is not nil
-        // call addNewNodeRecursively:throughCurrentNode: with left child as currentNode
-    // newNode has higher value and right child is not nil
-        // call addNewNodeRecursively:throughCurrentNode: with right child as currentNode
-    return YES;
+    // If we have gotten here without an early return the currentNode and newNode have the same objectID and the newNode should not be added to the tree so return NO/false (no duplicates)
+    return NO;
 }
 
-- (void)addObjectID:(NSInteger)objectID andObjectData:(id)objectData {
+- (void)addObjectByID:(NSInteger)objectID andObjectData:(id)objectData {
+    // Create a new BinaryTreeNode with the objectData and objectID
+    BinaryTreeNode *newNode = [[BinaryTreeNode alloc] initWithObjectID:objectID andDataObject:objectData];
+    BOOL successfullyAddedNewNode = NO;
+    // If the root is nil add it as the root
+    if (!_root) {
+        _root = newNode;
+        successfullyAddedNewNode = YES;
+    }
+    // Otherwise call addNewNodeRecursively:throughCurrentNode: with root as currentNode
+    else {
+        successfullyAddedNewNode = [self addNewNodeRecursively:newNode throughCurrentNode:_root];
+    }
     
+    if (successfullyAddedNewNode) {
+        NSLog(@"Successfully added new node");
+    }
+    else {
+        NSLog(@"Error adding new node");
+    }
 }
 
-- (void)deleteObjectID:(NSInteger)objectID {
+- (void)deleteObjectByID:(NSInteger)objectID {
     
 }
 

@@ -11,8 +11,8 @@
 // Create the manual stack as a child class of NSObject
 @interface UnbalancedBinaryTree : NSObject <BinaryTreeProtocol>
 
-- (void)addObjectID:(NSInteger)objectID andObjectData:(id)objectData;
-- (void)deleteObjectID:(NSInteger)objectID;
+- (void)addObjectByID:(NSInteger)objectID andObjectData:(id)objectData;
+- (void)deleteObjectByID:(NSInteger)objectID;
 - (void)printInorder;
 - (void)printPreorder;
 - (void)printPostorder;
