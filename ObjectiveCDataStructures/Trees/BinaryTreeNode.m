@@ -9,13 +9,13 @@
 
 @implementation BinaryTreeNode
 
-- (instancetype)initWithObjectID:(NSInteger)objectID andDataObject:(id)dataObject {
+- (instancetype)initWithObjectID:(NSInteger)objectID andDataObject:(NSString *)data {
     // Initialize the parent class/superclass and set it as self
     self = [super init];
     // If parent class/superclass was successfully initialized, set objectData and children to incoming objectData and nil, respectively
     if (self) {
         self.objectID = objectID;
-        self.dataObject = dataObject;
+        self.data = data;
         self.left = nil;
         self.right = nil;
     }

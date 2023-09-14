@@ -12,18 +12,26 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // Declare an NSInteger objectID and some objectData (doesn't matter what kind)
-        NSInteger objectID = 42;
-        NSString *objectData = @"A piece of data!";
-        
         // Declare the unbalanced binary tree
         UnbalancedBinaryTree *aUnbalancedBinaryTree = [[UnbalancedBinaryTree alloc] init];
         
         // Add an object to the binary tree (should report success to console)
-        [aUnbalancedBinaryTree addObjectByID:objectID andObjectData:objectData];
+        [aUnbalancedBinaryTree addObjectByID:3 andObjectData:@"Fear is the little-death that brings total obliteration."];
         
         // Try to add the same objectID to the tree (should report failure)
-        [aUnbalancedBinaryTree addObjectByID:objectID andObjectData:objectData];
+        [aUnbalancedBinaryTree addObjectByID:3 andObjectData:@"Fear is the little-death that brings total obliteration."];
+        
+        // Add some more objects to the binary trees
+        [aUnbalancedBinaryTree addObjectByID:8 andObjectData:@"Only I will remain."];
+        [aUnbalancedBinaryTree addObjectByID:5 andObjectData:@"I will permit it to pass over me and through me."];
+        [aUnbalancedBinaryTree addObjectByID:1 andObjectData:@"I must not fear."];
+        [aUnbalancedBinaryTree addObjectByID:7 andObjectData:@"Where the fear has gone there will be nothing."];
+        [aUnbalancedBinaryTree addObjectByID:6 andObjectData:@"And when it has gone past I will turn the inner eye to see its path."];
+        [aUnbalancedBinaryTree addObjectByID:2 andObjectData:@"Fear is the mind-killer."];
+        [aUnbalancedBinaryTree addObjectByID:4 andObjectData:@"I will face my fear."];
+        
+        // If the tree works, the Frank Herbert Dune quote should be displayed in the correct order
+        [aUnbalancedBinaryTree printInorder];
         
         
 //        // Declare the idiomatic stack object

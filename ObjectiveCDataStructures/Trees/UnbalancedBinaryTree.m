@@ -32,7 +32,7 @@
     return self;
 }
 
-// Returns true if node was successfully added by this version or by any previous version
+// Returns true if node was successfully added
 // Compare the objectID from the current node to the newNode. Lower values go left, higher values go right
 // If the values are the same then don't add the node and return "NO". No duplicates allowed.
 // This function should use tail recursion if it is an option in the compiler (which is why early returns are used here)
@@ -90,12 +90,62 @@
     }
 }
 
+
+
+- (NSInteger)deleteAndReturnValueOfInorderSuccessorRecursively:(BinaryTreeNode **)currentNode {
+    // Base cases:
+    // Left child exists
+        // Call deleteAndReturnValueOfInorderSuccessorForNode and return its return value
+    // No left child
+        // Right child exists (possible in an unbalanced bst)
+        // Call deleteAndReturnValueOfInorderSuccessorForNode on right child and set the value of this node with that node's value
+        // No right child
+            // Save the NSInteger value
+            // Set the currentNode to nil (this uses a pointer to a pointer so only want to dereference one layer so parent's poitner is set to nil)
+            // Return the saved NSInteger value
+    return 0;
+}
+
+- (BOOL)deleteNodeRecursively:(BinaryTreeNode **)currentNode ByObjectID:(NSInteger)objectID {
+    // Cases:
+    // ObjectID does not exist in tree
+        // Return NO/false
+    // ObjectID does exist in tree
+        // No children exist
+            // Set the currentNode pointer to nil (this uses a pointer to a pointer so only want to dereference one layer so parent's poitner is set to nil)
+        // A child node exists
+            // Call deleteAndReturnValueOfInorderSuccessorForNode on this node and set the value of this node to its return value
+    return NO;
+}
+
 - (void)deleteObjectByID:(NSInteger)objectID {
+    // Cases:
+    // ObjectID does not exist
+    // ObjectID exists in tree
+}
+
+- (void)printInorderRecursively:(BinaryTreeNode *)currentNode {
+    // Base cases:
+    // Node has left child
+    if (currentNode.left != nil) {
+        // Recursively call printInorder on left child
+        [self printInorderRecursively:currentNode.left];
+    }
+        
+    // Print the value of the current node
+    NSLog(@"%ld: %@ ", currentNode.objectID, currentNode.data);
     
+    // Node has right child
+        // Recursively call printInorder on the right child
+    if (currentNode.right != nil) {
+        // Recursively call printInorder on right child
+        [self printInorderRecursively:currentNode.right];
+    }
 }
 
 - (void)printInorder {
-    
+    // Call printInorderRecursively on the root
+    [self printInorderRecursively:_root];
 }
 
 - (void)printPreorder {

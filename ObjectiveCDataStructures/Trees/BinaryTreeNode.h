@@ -13,14 +13,14 @@
 
 // Holds the object for this BinaryTreeNode
 @property (nonatomic) NSInteger objectID;
-@property (nonatomic, strong) id dataObject;
+@property (nonatomic, strong) NSString *data;
 
 // Holds the pointers to the left and right children
 @property (nonatomic, strong) BinaryTreeNode *left;
 @property (nonatomic, strong) BinaryTreeNode *right;
 
 // Custom constructor/initializer with objectID and a dataObject as parameters
-- (instancetype)initWithObjectID:(NSInteger)objectID andDataObject:(id)dataObject;
+- (instancetype)initWithObjectID:(NSInteger)objectID andDataObject:(NSString *)data;
 
 
 @end
