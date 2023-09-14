@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B938959C2AABFEF40018EE80"
+               BlueprintIdentifier = "B96F97A02AAFD5CB009E3896"
                BuildableName = "ObjectiveCDataStructuresTests.xctest"
                BlueprintName = "ObjectiveCDataStructuresTests"
                ReferencedContainer = "container:ObjectiveCDataStructures.xcodeproj">

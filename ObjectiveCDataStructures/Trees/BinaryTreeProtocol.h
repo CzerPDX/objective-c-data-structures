@@ -13,11 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol BinaryTreeProtocol <NSObject>
 
 - (void)addObjectByID:(NSInteger)objectID andObjectData:(NSString *)data;
-- (void)deleteObjectByID:(NSInteger)objectID;
+- (BOOL)deleteObjectByID:(NSInteger)objectID;
 - (void)printInorder;
 - (void)printPreorder;
 - (void)printPostorder;
-- (id)searchForObjectID:(NSInteger *)objectID;
+- (NSString *)searchForObjectID:(NSInteger)objectID;
 @end
 
 NS_ASSUME_NONNULL_END

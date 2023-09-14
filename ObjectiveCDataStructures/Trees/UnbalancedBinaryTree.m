@@ -82,10 +82,7 @@
         successfullyAddedNewNode = [self addNewNodeRecursively:newNode throughCurrentNode:_root];
     }
     
-    if (successfullyAddedNewNode) {
-        NSLog(@"Successfully added new node");
-    }
-    else {
+    if (!successfullyAddedNewNode) {
         NSLog(@"Error adding new node");
     }
 }
@@ -118,27 +115,25 @@
     return NO;
 }
 
-- (void)deleteObjectByID:(NSInteger)objectID {
-    // Cases:
-    // ObjectID does not exist
-    // ObjectID exists in tree
+- (BOOL)deleteObjectByID:(NSInteger)objectID {
+    // Search the tree for the object
+        // ObjectID found
+        
+        // ObjectID not found
+    return NO;
 }
 
 - (void)printInorderRecursively:(BinaryTreeNode *)currentNode {
-    // Base cases:
-    // Node has left child
+    // Call printInorderRecursively on left child
     if (currentNode.left != nil) {
-        // Recursively call printInorder on left child
         [self printInorderRecursively:currentNode.left];
     }
         
     // Print the value of the current node
     NSLog(@"%ld: %@ ", currentNode.objectID, currentNode.data);
     
-    // Node has right child
-        // Recursively call printInorder on the right child
+    // Call printInorderRecursively on right child
     if (currentNode.right != nil) {
-        // Recursively call printInorder on right child
         [self printInorderRecursively:currentNode.right];
     }
 }
@@ -148,15 +143,47 @@
     [self printInorderRecursively:_root];
 }
 
-- (void)printPreorder {
+- (void)printPreorderRecursively:(BinaryTreeNode *)currentNode {
+    // Print the value of the current node
+    NSLog(@"%ld: %@ ", currentNode.objectID, currentNode.data);
     
+    // Call printPreorderRecursively on left child
+    if (currentNode.left != nil) {
+        [self printPreorderRecursively:currentNode.left];
+    }
+    
+    // Call printPreorderRecursively on right child
+    if (currentNode.right != nil) {
+        [self printPreorderRecursively:currentNode.right];
+    }
+}
+
+- (void)printPreorder {
+    // Call printInorderRecursively on the root
+    [self printPreorderRecursively:_root];
+}
+
+- (void)printPostorderRecursively:(BinaryTreeNode *)currentNode {
+    // Call printPostorderRecursively on left child
+    if (currentNode.left != nil) {
+        [self printPostorderRecursively:currentNode.left];
+    }
+    
+    // Call printPostorderRecursively on right child
+    if (currentNode.right != nil) {
+        [self printPostorderRecursively:currentNode.right];
+    }
+    
+    // Print the value of the current node
+    NSLog(@"%ld: %@ ", currentNode.objectID, currentNode.data);
 }
 
 - (void)printPostorder {
-    
+    // Call printPostorderRecursively on the root
+    [self printPostorderRecursively:_root];
 }
 
-- (id)searchForObjectID:(NSInteger *)objectID {
+- (NSString *)searchForObjectID:(NSInteger)objectID {
     return nil;
 }
 

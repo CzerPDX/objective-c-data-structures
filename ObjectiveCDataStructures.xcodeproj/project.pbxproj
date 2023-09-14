@@ -23,6 +23,8 @@
 		B96F97D12AAFD7D1009E3896 /* ManualStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B96F97D02AAFD7D1009E3896 /* ManualStackTests.m */; };
 		B96F97EE2AB127BF009E3896 /* BinaryTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = B96F97ED2AB127BF009E3896 /* BinaryTreeNode.m */; };
 		B96F98002AB16891009E3896 /* UnbalancedBinaryTree.m in Sources */ = {isa = PBXBuildFile; fileRef = B96F97FF2AB16891009E3896 /* UnbalancedBinaryTree.m */; };
+		B997DCFC2AB3B843009F6F8D /* BinaryTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = B96F97ED2AB127BF009E3896 /* BinaryTreeNode.m */; };
+		B997DCFF2AB3B845009F6F8D /* UnbalancedBinaryTree.m in Sources */ = {isa = PBXBuildFile; fileRef = B96F97FF2AB16891009E3896 /* UnbalancedBinaryTree.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -251,8 +253,10 @@
 				B96F97C32AAFD680009E3896 /* BaseStackTests.m in Sources */,
 				B96F97C92AAFD6AF009E3896 /* IdiomaticStackTests.m in Sources */,
 				B96F97D12AAFD7D1009E3896 /* ManualStackTests.m in Sources */,
+				B997DCFF2AB3B845009F6F8D /* UnbalancedBinaryTree.m in Sources */,
 				B96F97B92AAFD629009E3896 /* ManualStack.m in Sources */,
 				B96F97BC2AAFD62B009E3896 /* main.m in Sources */,
+				B997DCFC2AB3B843009F6F8D /* BinaryTreeNode.m in Sources */,
 				B96F97BF2AAFD631009E3896 /* LinkedListNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,20 +379,28 @@
 		B947E5CA2AAA82C900445B67 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z5W8B4D54J;
 				ENABLE_HARDENED_RUNTIME = YES;
+				"LD_RUNPATH_SEARCH_PATHS[arch=*]" = "@executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = objectivecdatastructures;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
 		B947E5CB2AAA82C900445B67 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z5W8B4D54J;
 				ENABLE_HARDENED_RUNTIME = YES;
+				"LD_RUNPATH_SEARCH_PATHS[arch=*]" = "@executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = objectivecdatastructures;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
