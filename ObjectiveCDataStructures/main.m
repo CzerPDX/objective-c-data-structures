@@ -62,8 +62,6 @@ int main(int argc, const char * argv[]) {
         NSLog(@"Pop:    %@", [aIdiomaticStack pop]);                        // 12345
         NSLog(@"Pop:    %@", [aIdiomaticStack pop]);                        // 1
         NSLog(@"Is the stack empty:     %d", [aIdiomaticStack isEmpty]);    // 1
-        NSLog(@"");
-        NSLog(@"");
     }
     return 0;
 }

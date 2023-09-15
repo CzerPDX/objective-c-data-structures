@@ -183,7 +183,7 @@
     [self printPostorderRecursively:_root];
 }
 
-- (NSString *)searchForObjectID:(NSInteger)objectID {
+- (id)searchForObjectID:(NSInteger)objectID {
     return nil;
 }
 
