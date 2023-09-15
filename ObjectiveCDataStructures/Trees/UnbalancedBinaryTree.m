@@ -93,7 +93,7 @@ typedef NS_ENUM(NSInteger, ChildType) {
     ChildTypeNeither // Indicates root
 };
 
-- (BinaryTreeNode *)searchForObjectIDRecursively:(NSInteger)objectID throughCurrentNode:(BinaryTreeNode *)currentNode {
+- (id)searchForObjectIDRecursively:(NSInteger)objectID throughCurrentNode:(BinaryTreeNode *)currentNode {
     // Compare the current node's objectID to the objectID being looked for. Return the node if it is the correct one
     if (objectID < currentNode.objectID) {
         // If currentNode has a left child call recursively on left child
@@ -103,7 +103,7 @@ typedef NS_ENUM(NSInteger, ChildType) {
             return nil;
         }
     } else if (currentNode.objectID == objectID) {
-        return currentNode;
+        return currentNode.data;
     } else {
         // If currentNode has a right child call recursively on right child
         if (currentNode.right) {
@@ -116,9 +116,9 @@ typedef NS_ENUM(NSInteger, ChildType) {
 
 // Print data to the console for given objectID if it exists, otherwise print an error message.
 - (void)printDataAtObjectID:(NSInteger)objectID {
-    BinaryTreeNode *searchResultNode = [self searchForObjectIDRecursively:objectID throughCurrentNode:self.root];
-    if (searchResultNode) {
-        NSLog(@"Data associated with objectID #%ld: %@", objectID, searchResultNode.data);
+    BinaryTreeNode *searchResultData = [self searchForObjectIDRecursively:objectID throughCurrentNode:self.root];
+    if (searchResultData) {
+        NSLog(@"Data associated with objectID #%ld: %@", objectID, searchResultData);
     } else {
         NSLog(@"No match found for object ID #%ld", objectID);
     }
@@ -126,6 +126,7 @@ typedef NS_ENUM(NSInteger, ChildType) {
 
 - (BOOL)deleteObjectByID:(NSInteger)objectID {
     // Search the tree for the object
+    
         // ObjectID found
         
         // ObjectID not found
