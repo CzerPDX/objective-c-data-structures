@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)printInorder;
 - (void)printPreorder;
 - (void)printPostorder;
-- (NSString *)searchForObjectID:(NSInteger)objectID;
+- (NSString *)printDataAtObjectID:(NSInteger)objectID;
 @end
 
 NS_ASSUME_NONNULL_END
