@@ -21,7 +21,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _stackItems = [[NSMutableArray alloc] init];
+        self.stackItems = [[NSMutableArray alloc] init];
     }
     return self;
 }

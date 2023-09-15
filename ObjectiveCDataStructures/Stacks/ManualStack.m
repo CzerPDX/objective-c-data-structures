@@ -22,7 +22,7 @@
     
     // If the initialization of the base class was successful set head to nil
     if (self) {
-        _head = nil;
+        self.head = nil;
     }
     return self;
 }
