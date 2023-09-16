@@ -87,14 +87,8 @@
     }
 }
 
-typedef NS_ENUM(NSInteger, ChildType) {
-    ChildTypeLeft,
-    ChildTypeRight,
-    ChildTypeNeither // Indicates root
-};
-
 - (id)searchForObjectIDRecursively:(NSInteger)objectID throughCurrentNode:(BinaryTreeNode *)currentNode {
-    // Compare the current node's objectID to the objectID being looked for. Return the node if it is the correct one
+    // Compare the current node's objectID to the objectID being looked for. Return the data if it is the correct one
     if (objectID < currentNode.objectID) {
         // If currentNode has a left child call recursively on left child
         if (currentNode.left) {
@@ -124,12 +118,102 @@ typedef NS_ENUM(NSInteger, ChildType) {
     }
 }
 
-- (BOOL)deleteObjectByID:(NSInteger)objectID {
-    // Search the tree for the object
+typedef NS_ENUM(NSInteger, ChildType) {
+    ChildTypeLeft,
+    ChildTypeRight,
+    ChildTypeRoot // Indicates root
+};
+
+- (BinaryTreeNode *)returnInorderSuccessorFromRightTree:(BinaryTreeNode *)currentNode andAdjustParentWhereRemoved:(BinaryTreeNode *)parentNode byChildType:(ChildType)childType {
+    // If there is a left child
+    if (currentNode.left) {
+        // Recurse left
+        return [self returnInorderSuccessorFromRightTree:currentNode.left andAdjustParentWhereRemoved:currentNode byChildType:ChildTypeLeft];
+    } else {
+        // If there is no left child but there is a right child need to call the wrapper and the return value of the wrapper is the inorder successor
+        if (currentNode.right) {
+            return [self replaceWithInorderSuccessor:currentNode andAdjustParentWhereRemoved:parentNode byChildType:childType];
+        }
+        // If there is neither a left nor a right child then this is the inorder successor
+        else {
+            if (childType == ChildTypeLeft) {
+                parentNode.left = nil;
+            } else {
+                parentNode.right = nil;
+            }
+            return currentNode;
+        }
+    }
+}
+
+-(BinaryTreeNode *)replaceWithInorderSuccessor:(BinaryTreeNode *)currentNode andAdjustParentWhereRemoved:(BinaryTreeNode *)parentNode byChildType:(ChildType)childType {
     
-        // ObjectID found
+    if (currentNode.right) {
+        BinaryTreeNode *inorderSuccessor = [self returnInorderSuccessorFromRightTree:currentNode.right andAdjustParentWhereRemoved:currentNode byChildType:ChildTypeRight];
+        inorderSuccessor.left = currentNode.left;
         
-        // ObjectID not found
+        if (inorderSuccessor != currentNode.right) {
+            inorderSuccessor.right = currentNode.right;
+        }
+        
+        if (childType == ChildTypeLeft) {
+            parentNode.left = inorderSuccessor;
+        } else if (childType == ChildTypeRight) {
+            parentNode.right = inorderSuccessor;
+        } else {
+            self.root = inorderSuccessor;
+        }
+        return inorderSuccessor;
+    } else if (currentNode.left) {
+        // If there is no right child but there is a left one just replace the current one with the left child
+        
+        if (childType == ChildTypeLeft) {
+            parentNode.left = currentNode.left;
+        } else if (childType == ChildTypeRight) {
+            parentNode.right = currentNode.left;
+        } else {
+            self.root = currentNode.left;
+        }
+        return currentNode.left;
+    } else {
+        if (childType == ChildTypeLeft) {
+            parentNode.left = nil;
+        } else if (childType == ChildTypeRight) {
+            parentNode.right = nil;
+        } else {
+            self.root = nil;
+        }
+        return nil;
+    }
+}
+
+// Find node to delete by its objectID
+-(BOOL)findNodeToDeleteByID:(NSInteger)objectID throughCurrentNode:(BinaryTreeNode *)currentNode andAdjustParent:(BinaryTreeNode *)parentNode byChildType:(ChildType)childType {
+    
+    if (currentNode) {
+        // if less, go left. If more, go right. If equal, begin removal processs. If non-existent return NO
+        if (objectID < currentNode.objectID) {
+            // Continue searching down left branch
+            return [self findNodeToDeleteByID:objectID throughCurrentNode:currentNode.left andAdjustParent:currentNode byChildType:ChildTypeLeft];
+        } else if (objectID > currentNode.objectID) {
+            // Continue searching down right branch
+            return [self findNodeToDeleteByID:objectID throughCurrentNode:currentNode.right andAdjustParent:currentNode byChildType:ChildTypeRight];
+        } else {
+            // Found objectID to remove. Begin removal process
+            NSLog(@"Found node to delete. ID: %ld and data: %@", currentNode.objectID, currentNode.data);
+            [self replaceWithInorderSuccessor:currentNode andAdjustParentWhereRemoved:parentNode byChildType:childType];
+                
+            return YES;
+        }
+    } else {
+        NSLog(@"ID: %ld does not exist", objectID);
+        return NO;
+    }
+}
+
+
+- (BOOL)deleteObjectByID:(NSInteger)objectID {
+    [self findNodeToDeleteByID:objectID throughCurrentNode:self.root andAdjustParent:nil byChildType:ChildTypeRoot];
     return NO;
 }
 

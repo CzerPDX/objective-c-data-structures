@@ -35,8 +35,14 @@ int main(int argc, const char * argv[]) {
         [aUnbalancedBinaryTree addObjectByID:4 andObjectData:@"I will face my fear."];
         
         // Search for an object
-        NSInteger objectID = 8;
-        [aUnbalancedBinaryTree printDataAtObjectID:objectID];
+        NSInteger objectID = 3;
+//        [aUnbalancedBinaryTree printDataAtObjectID:objectID];
+        
+        [aUnbalancedBinaryTree printInorder];
+        NSLog(@"");
+        [aUnbalancedBinaryTree deleteObjectByID:objectID];
+        NSLog(@"");
+        [aUnbalancedBinaryTree printInorder];
         
         
 //        // If printInorder is correctly written, the quote should be displayed in the correct order
