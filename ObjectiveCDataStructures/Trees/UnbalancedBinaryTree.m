@@ -68,6 +68,7 @@
     return NO;
 }
 
+// Add an object to the binary tree organized by objectID
 - (void)addObjectByID:(NSInteger)objectID andObjectData:(id)objectData {
     // Create a new BinaryTreeNode with the objectData and objectID
     BinaryTreeNode *newNode = [[BinaryTreeNode alloc] initWithObjectID:objectID andDataObject:objectData];
@@ -87,21 +88,24 @@
     }
 }
 
-- (id)searchForObjectIDRecursively:(NSInteger)objectID throughCurrentNode:(BinaryTreeNode *)currentNode {
+// Returns the object in the tree that is at the objectID node if one exists. Otherwise it returns nil.
+- (id)searchRecursivelyForObjectID:(NSInteger)objectID throughCurrentNode:(BinaryTreeNode *)currentNode {
+    
     // Compare the current node's objectID to the objectID being looked for. Return the data if it is the correct one
     if (objectID < currentNode.objectID) {
-        // If currentNode has a left child call recursively on left child
+        // If currentNode has a left child call recursively on left child. Otherwise, return nil.
         if (currentNode.left) {
-            return [self searchForObjectIDRecursively:objectID throughCurrentNode:currentNode.left];
+            return [self searchRecursivelyForObjectID:objectID throughCurrentNode:currentNode.left];
         } else {
             return nil;
         }
     } else if (currentNode.objectID == objectID) {
+        // Return the data at the node that matches the requested objectID
         return currentNode.data;
     } else {
-        // If currentNode has a right child call recursively on right child
+        // If currentNode has a right child call this function recursively on right child. Otherwise, return nil;
         if (currentNode.right) {
-            return [self searchForObjectIDRecursively:objectID throughCurrentNode:currentNode.right];
+            return [self searchRecursivelyForObjectID:objectID throughCurrentNode:currentNode.right];
         } else {
             return nil;
         }
@@ -110,7 +114,7 @@
 
 // Print data to the console for given objectID if it exists, otherwise print an error message.
 - (void)printDataAtObjectID:(NSInteger)objectID {
-    BinaryTreeNode *searchResultData = [self searchForObjectIDRecursively:objectID throughCurrentNode:self.root];
+    BinaryTreeNode *searchResultData = [self searchRecursivelyForObjectID:objectID throughCurrentNode:self.root];
     if (searchResultData) {
         NSLog(@"Data associated with objectID #%ld: %@", objectID, searchResultData);
     } else {
@@ -124,17 +128,27 @@ typedef NS_ENUM(NSInteger, ChildType) {
     ChildTypeRoot // Indicates root
 };
 
-- (BinaryTreeNode *)returnInorderSuccessorFromRightTree:(BinaryTreeNode *)currentNode andAdjustParentWhereRemoved:(BinaryTreeNode *)parentNode byChildType:(ChildType)childType {
-    // If there is a left child
+// Returns the inorder successor from the right-tree
+- (BinaryTreeNode *)inorderSuccessorFromRightTree:(BinaryTreeNode *)currentNode andAdjustParentWhereRemoved:(BinaryTreeNode *)parentNode byChildType:(ChildType)childType {
+    // If there is a left child this isn't the inorder successor
     if (currentNode.left) {
         // Recurse left
-        return [self returnInorderSuccessorFromRightTree:currentNode.left andAdjustParentWhereRemoved:currentNode byChildType:ChildTypeLeft];
-    } else {
-        // If there is no left child but there is a right child need to call the wrapper and the return value of the wrapper is the inorder successor
+        return [self inorderSuccessorFromRightTree:currentNode.left andAdjustParentWhereRemoved:currentNode byChildType:ChildTypeLeft];
+    }
+    // If there is no left child then this is the inorder successor
+    else {
+        // If there's a right node it needs to be connected to the parentNode
         if (currentNode.right) {
-            return [self replaceWithInorderSuccessor:currentNode andAdjustParentWhereRemoved:parentNode byChildType:childType];
+            if (childType == ChildTypeLeft) {
+                parentNode.left = currentNode.right;
+            } else if (childType == ChildTypeRight) {
+                parentNode.right = currentNode.right;
+            } else {
+                self.root = currentNode.right;
+            }
+            return currentNode;
         }
-        // If there is neither a left nor a right child then this is the inorder successor
+        // If there is neither a left nor a right child then parent poitner can be nil
         else {
             if (childType == ChildTypeLeft) {
                 parentNode.left = nil;
@@ -146,10 +160,11 @@ typedef NS_ENUM(NSInteger, ChildType) {
     }
 }
 
+// Replace the currentNode with its inorder successor
 -(BinaryTreeNode *)replaceWithInorderSuccessor:(BinaryTreeNode *)currentNode andAdjustParentWhereRemoved:(BinaryTreeNode *)parentNode byChildType:(ChildType)childType {
     
     if (currentNode.right) {
-        BinaryTreeNode *inorderSuccessor = [self returnInorderSuccessorFromRightTree:currentNode.right andAdjustParentWhereRemoved:currentNode byChildType:ChildTypeRight];
+        BinaryTreeNode *inorderSuccessor = [self inorderSuccessorFromRightTree:currentNode.right andAdjustParentWhereRemoved:currentNode byChildType:ChildTypeRight];
         inorderSuccessor.left = currentNode.left;
         
         if (inorderSuccessor != currentNode.right) {

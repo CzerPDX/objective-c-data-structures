@@ -13,11 +13,11 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        NSLog(@"Testing Unbalanced Binary Tree with a Frank Herbert Dune Quote");
+        NSLog(@"Testing an Unbalanced Binary Tree with a Quote from Dune by Frank Herbert");
         // Declare the unbalanced binary tree
         UnbalancedBinaryTree *aUnbalancedBinaryTree = [[UnbalancedBinaryTree alloc] init];
         
-        // Add an object to the binary tree
+        // Add a quote from Dune to the binary tree
         [aUnbalancedBinaryTree addObjectByID:3 andObjectData:@"Fear is the little-death that brings total obliteration."];
         
         // Try to add the same objectID to the tree (should report failure)
@@ -25,7 +25,7 @@ int main(int argc, const char * argv[]) {
         [aUnbalancedBinaryTree addObjectByID:3 andObjectData:@"Fear is the little-death that brings total obliteration."];
         NSLog(@"");
         
-        // Add some more objects to the binary trees
+        // Add some more quotes from Dune to the binary tree (intentionally added out of order)
         [aUnbalancedBinaryTree addObjectByID:8 andObjectData:@"Only I will remain."];
         [aUnbalancedBinaryTree addObjectByID:5 andObjectData:@"I will permit it to pass over me and through me."];
         [aUnbalancedBinaryTree addObjectByID:1 andObjectData:@"I must not fear."];
@@ -34,13 +34,20 @@ int main(int argc, const char * argv[]) {
         [aUnbalancedBinaryTree addObjectByID:2 andObjectData:@"Fear is the mind-killer."];
         [aUnbalancedBinaryTree addObjectByID:4 andObjectData:@"I will face my fear."];
         
-        // Search for an object
-        NSInteger objectID = 3;
-//        [aUnbalancedBinaryTree printDataAtObjectID:objectID];
-        
+        // Print the quote's lines in order with inorder traversal
+        NSLog(@"Before removal:");
         [aUnbalancedBinaryTree printInorder];
         NSLog(@"");
-        [aUnbalancedBinaryTree deleteObjectByID:objectID];
+        
+        // Delete an object from the tree and check to see if all other nodes are there correctly
+        [aUnbalancedBinaryTree deleteObjectByID:3];
+        NSLog(@"After removal:");
+        NSLog(@"");
+        [aUnbalancedBinaryTree printInorder];
+        
+        // Delete an object from the tree and check to see if all other nodes are there correctly
+        [aUnbalancedBinaryTree deleteObjectByID:4];
+        NSLog(@"After removal:");
         NSLog(@"");
         [aUnbalancedBinaryTree printInorder];
         
