@@ -156,11 +156,16 @@ typedef NS_ENUM(NSInteger, ChildType) {
         // Whether or not the successor has a right child, the pointer that once led to this currentNode from the parent can be set to the currentNode's right child.
         // If there is another node at the end of that pointer it will set the parent pointer to that node as it should.
         // If it is set to nil this will set the parent poitner to nil as it should. Voila!
+        
+        // Adjust the parentNode's pointers
         if (childType == ChildTypeLeft) {
             parentNode.left = currentNode.right;
         } else {
             parentNode.right = currentNode.right;
         }
+        // Set currentNode's left and right to nil
+        currentNode.left = nil;
+        currentNode.right = nil;
         return currentNode;
     }
 }
@@ -172,12 +177,14 @@ typedef NS_ENUM(NSInteger, ChildType) {
     if (currentNode.right) {
         // Call the function that returns the inorder Successor node and cleans up the parent nodes child pointer that points to it.
         BinaryTreeNode *inorderSuccessor = [self inorderSuccessorFromRightTree:currentNode.right andAdjustParentWhereRemoved:currentNode byChildType:ChildTypeRight];
+        
+        // NOTE: It's not necessary to check here if the successor is the currentNode.right because parent pointer should have been set to nil already in the currentNode when it was found if so there should never be any feedback loops.
+        
+        // Set the successor's left and right children to the currentNode's left and right children
         inorderSuccessor.left = currentNode.left;
+        inorderSuccessor.right = currentNode.right;
         
-        if (inorderSuccessor != currentNode.right) {
-            inorderSuccessor.right = currentNode.right;
-        }
-        
+        // Then set the parent pointer depending on the child type
         if (childType == ChildTypeLeft) {
             parentNode.left = inorderSuccessor;
         } else if (childType == ChildTypeRight) {
@@ -198,6 +205,7 @@ typedef NS_ENUM(NSInteger, ChildType) {
         }
         return currentNode.left;
     } else {
+        // If there is no left or right child then just set the parent pointer to nil to release the memory
         if (childType == ChildTypeLeft) {
             parentNode.left = nil;
         } else if (childType == ChildTypeRight) {
