@@ -20,11 +20,6 @@ int main(int argc, const char * argv[]) {
         // Add a quote from Dune to the binary tree
         [aUnbalancedBinaryTree addObjectByID:3 andObjectData:@"Fear is the little-death that brings total obliteration."];
         
-        // Try to add the same objectID to the tree (should report failure)
-        NSLog(@"There should be a failure message below this line:");
-        [aUnbalancedBinaryTree addObjectByID:3 andObjectData:@"Fear is the little-death that brings total obliteration."];
-        NSLog(@"");
-        
         // Add some more quotes from Dune to the binary tree (intentionally added out of order)
         [aUnbalancedBinaryTree addObjectByID:8 andObjectData:@"Only I will remain."];
         [aUnbalancedBinaryTree addObjectByID:5 andObjectData:@"I will permit it to pass over me and through me."];
@@ -33,6 +28,7 @@ int main(int argc, const char * argv[]) {
         [aUnbalancedBinaryTree addObjectByID:6 andObjectData:@"And when it has gone past I will turn the inner eye to see its path."];
         [aUnbalancedBinaryTree addObjectByID:2 andObjectData:@"Fear is the mind-killer."];
         [aUnbalancedBinaryTree addObjectByID:4 andObjectData:@"I will face my fear."];
+        NSLog(@"");
         
         // Print the quote's lines in order with inorder traversal
         NSLog(@"Before removal:");
@@ -44,12 +40,14 @@ int main(int argc, const char * argv[]) {
         NSLog(@"After removal:");
         NSLog(@"");
         [aUnbalancedBinaryTree printInorder];
+        NSLog(@"");
         
         // Delete an object from the tree and check to see if all other nodes are there correctly
         [aUnbalancedBinaryTree deleteObjectByID:4];
         NSLog(@"After removal:");
         NSLog(@"");
         [aUnbalancedBinaryTree printInorder];
+        NSLog(@"");
         
         
 //        // If printInorder is correctly written, the quote should be displayed in the correct order

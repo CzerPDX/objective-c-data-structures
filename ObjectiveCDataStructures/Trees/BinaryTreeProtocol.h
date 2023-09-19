@@ -9,10 +9,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSInteger, AddResult) {
+    SuccessfullyAdded,
+    FailedAddError,
+    FailedAddDuplicate
+};
+
 // Protocol that defines the interface for all binary trees
 @protocol BinaryTreeProtocol <NSObject>
 
-- (void)addObjectByID:(NSInteger)objectID andObjectData:(id)data;
+- (AddResult)addObjectByID:(NSInteger)objectID andObjectData:(id)data;
 - (BOOL)deleteObjectByID:(NSInteger)objectID;
 - (void)printInorder;
 - (void)printPreorder;

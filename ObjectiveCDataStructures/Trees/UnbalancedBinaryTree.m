@@ -36,14 +36,14 @@
 // Compare the objectID from the current node to the newNode. Lower values go left, higher values go right
 // If the values are the same then don't add the node and return "NO". No duplicates allowed.
 // This function should use tail recursion if it is an option in the compiler (which is why early returns are used here)
-- (BOOL)addNewNodeRecursively:(BinaryTreeNode *)newNode throughCurrentNode:(BinaryTreeNode *)currentNode {
+- (AddResult)addNewNodeRecursively:(BinaryTreeNode *)newNode throughCurrentNode:(BinaryTreeNode *)currentNode {
     // If the newNode's objectID is lower than currentNode's objectID, go left
     if (newNode.objectID < currentNode.objectID) {
         // If the left child is nil set the current node's left pointer to the new node
         if (!currentNode.left) {
             // Set newNode to left child and return YEStrue
             currentNode.left = newNode;
-            return YES;
+            return SuccessfullyAdded;
         }
         // Otherwise, call addNewNodeRecursively:throughCurrentNode with left child as current node
         else {
@@ -56,36 +56,38 @@
         if (!currentNode.right) {
             // Set newNode to right child and return YES/true
             currentNode.right = newNode;
-            return YES;
+            return SuccessfullyAdded;
         }
         // Otherwise, call addNewNodeRecursively:throughCurrentNode with right child as current node
         else {
             return [self addNewNodeRecursively:newNode throughCurrentNode:currentNode.right];
         }
     }
+    // If the newNode's objectID is equal to the currentNode's objectID return a duplicate value failure "FailedAddDuplicate"
+    else if (newNode.objectID == currentNode.objectID) {
+        return FailedAddDuplicate;
+    }
     
-    // If we have gotten here without an early return the currentNode and newNode have the same objectID and the newNode should not be added to the tree so return NO/false (no duplicates)
-    return NO;
+    // If we have gotten here without an early return the currentNode and newNode have the same objectID and the newNode should not be added to the tree so return FailedAddError (no duplicates)
+    return FailedAddError;
 }
 
 // Add an object to the binary tree organized by objectID
-- (void)addObjectByID:(NSInteger)objectID andObjectData:(id)objectData {
+- (AddResult)addObjectByID:(NSInteger)objectID andObjectData:(id)objectData {
     // Create a new BinaryTreeNode with the objectData and objectID
     BinaryTreeNode *newNode = [[BinaryTreeNode alloc] initWithObjectID:objectID andDataObject:objectData];
-    BOOL nodeAdded = NO;
+    AddResult addObjectByIDResult;
     // If the root is nil add it as the root
     if (!self.root) {
         self.root = newNode;
-        nodeAdded = YES;
+        addObjectByIDResult = SuccessfullyAdded;
     }
     // Otherwise call addNewNodeRecursively:throughCurrentNode: with root as currentNode
     else {
-        nodeAdded = [self addNewNodeRecursively:newNode throughCurrentNode:self.root];
+        addObjectByIDResult = [self addNewNodeRecursively:newNode throughCurrentNode:self.root];
     }
     
-    if (!nodeAdded) {
-        NSLog(@"Error adding new node");
-    }
+    return addObjectByIDResult;
 }
 
 // Returns the object in the tree that is at the objectID node if one exists. Otherwise it returns nil.
