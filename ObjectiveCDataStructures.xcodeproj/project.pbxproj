@@ -25,7 +25,8 @@
 		B96F98002AB16891009E3896 /* UnbalancedBinaryTree.m in Sources */ = {isa = PBXBuildFile; fileRef = B96F97FF2AB16891009E3896 /* UnbalancedBinaryTree.m */; };
 		B997DCFC2AB3B843009F6F8D /* BinaryTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = B96F97ED2AB127BF009E3896 /* BinaryTreeNode.m */; };
 		B997DCFF2AB3B845009F6F8D /* UnbalancedBinaryTree.m in Sources */ = {isa = PBXBuildFile; fileRef = B96F97FF2AB16891009E3896 /* UnbalancedBinaryTree.m */; };
-		B9DEC5522ABA317700C49536 /* BaseTreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DEC5512ABA317700C49536 /* BaseTreeTests.m */; };
+		B9DEC5522ABA317700C49536 /* BaseBinaryTreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DEC5512ABA317700C49536 /* BaseBinaryTreeTests.m */; };
+		B9DEC5562ABA3B2400C49536 /* UnbalancedBinaryTreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DEC5552ABA3B2400C49536 /* UnbalancedBinaryTreeTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,8 +62,9 @@
 		B96F97F82AB14923009E3896 /* BinaryTreeProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinaryTreeProtocol.h; sourceTree = "<group>"; };
 		B96F97FC2AB16283009E3896 /* UnbalancedBinaryTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnbalancedBinaryTree.h; sourceTree = "<group>"; };
 		B96F97FF2AB16891009E3896 /* UnbalancedBinaryTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnbalancedBinaryTree.m; sourceTree = "<group>"; };
-		B9CFC4A62ABA3073001820D5 /* BaseTreeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTreeTests.h; sourceTree = "<group>"; };
-		B9DEC5512ABA317700C49536 /* BaseTreeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTreeTests.m; sourceTree = "<group>"; };
+		B9CFC4A62ABA3073001820D5 /* BaseBinaryTreeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseBinaryTreeTests.h; sourceTree = "<group>"; };
+		B9DEC5512ABA317700C49536 /* BaseBinaryTreeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseBinaryTreeTests.m; sourceTree = "<group>"; };
+		B9DEC5552ABA3B2400C49536 /* UnbalancedBinaryTreeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnbalancedBinaryTreeTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,9 +133,10 @@
 				B96F97A52AAFD5CB009E3896 /* Info.plist */,
 				B96F97C22AAFD680009E3896 /* BaseStackTests.m */,
 				B96F97CD2AAFD766009E3896 /* BaseStackTests.h */,
-				B9CFC4A62ABA3073001820D5 /* BaseTreeTests.h */,
-				B9DEC5512ABA317700C49536 /* BaseTreeTests.m */,
+				B9CFC4A62ABA3073001820D5 /* BaseBinaryTreeTests.h */,
+				B9DEC5512ABA317700C49536 /* BaseBinaryTreeTests.m */,
 				B96F97C82AAFD6AF009E3896 /* IdiomaticStackTests.m */,
+				B9DEC5552ABA3B2400C49536 /* UnbalancedBinaryTreeTests.m */,
 				B96F97D02AAFD7D1009E3896 /* ManualStackTests.m */,
 			);
 			path = ObjectiveCDataStructuresTests;
@@ -262,7 +265,8 @@
 				B96F97B92AAFD629009E3896 /* ManualStack.m in Sources */,
 				B96F97BC2AAFD62B009E3896 /* main.m in Sources */,
 				B997DCFC2AB3B843009F6F8D /* BinaryTreeNode.m in Sources */,
-				B9DEC5522ABA317700C49536 /* BaseTreeTests.m in Sources */,
+				B9DEC5522ABA317700C49536 /* BaseBinaryTreeTests.m in Sources */,
+				B9DEC5562ABA3B2400C49536 /* UnbalancedBinaryTreeTests.m in Sources */,
 				B96F97BF2AAFD631009E3896 /* LinkedListNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
