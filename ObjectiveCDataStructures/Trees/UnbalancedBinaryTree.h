@@ -14,6 +14,7 @@
 - (AddResult)addObjectByID:(NSInteger)objectID andObjectData:(id)objectData;
 - (DeleteResult)deleteObjectByID:(NSInteger)objectID;
 - (void)printInorder;
+- (NSMutableArray *)returnDataInOrder;
 - (void)printPreorder;
 - (void)printPostorder;
 - (NSString *)getDataAtObjectID:(NSInteger)objectID;

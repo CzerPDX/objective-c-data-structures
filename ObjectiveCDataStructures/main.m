@@ -30,24 +30,30 @@ int main(int argc, const char * argv[]) {
         [aUnbalancedBinaryTree addObjectByID:4 andObjectData:@"I will face my fear."];
         NSLog(@"");
         
-        // Print the quote's lines in order with inorder traversal
-        NSLog(@"Before removal:");
-        [aUnbalancedBinaryTree printInorder];
-        NSLog(@"");
+        // Get the data from the tree as an array in correct order
+        NSMutableArray *inorderTreeData = [aUnbalancedBinaryTree returnDataInOrder];
+        for (int i = 0; i < inorderTreeData.count; i++) {
+            NSLog(@"%@", inorderTreeData[i]);
+        }
         
-        // Delete an object from the tree and check to see if all other nodes are there correctly
-        [aUnbalancedBinaryTree deleteObjectByID:3];
-        NSLog(@"After removal:");
-        NSLog(@"");
-        [aUnbalancedBinaryTree printInorder];
-        NSLog(@"");
-        
-        // Delete an object from the tree and check to see if all other nodes are there correctly
-        [aUnbalancedBinaryTree deleteObjectByID:4];
-        NSLog(@"After removal:");
-        NSLog(@"");
-        [aUnbalancedBinaryTree printInorder];
-        NSLog(@"");
+//        // Print the quote's lines in order with inorder traversal
+//        NSLog(@"Before removal:");
+//        [aUnbalancedBinaryTree printInorder];
+//        NSLog(@"");
+//
+//        // Delete an object from the tree and check to see if all other nodes are there correctly
+//        [aUnbalancedBinaryTree deleteObjectByID:3];
+//        NSLog(@"After removal:");
+//        NSLog(@"");
+//        [aUnbalancedBinaryTree printInorder];
+//        NSLog(@"");
+//
+//        // Delete an object from the tree and check to see if all other nodes are there correctly
+//        [aUnbalancedBinaryTree deleteObjectByID:4];
+//        NSLog(@"After removal:");
+//        NSLog(@"");
+//        [aUnbalancedBinaryTree printInorder];
+//        NSLog(@"");
         
         
 //        // If printInorder is correctly written, the quote should be displayed in the correct order

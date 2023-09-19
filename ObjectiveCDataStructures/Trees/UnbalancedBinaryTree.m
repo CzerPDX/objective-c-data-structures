@@ -246,16 +246,15 @@ typedef NS_ENUM(NSInteger, ChildType) {
 
 // Print the tree inorder
 - (void)printInorderRecursively:(BinaryTreeNode *)currentNode {
-    // Call printInorderRecursively on left child
-    if (currentNode.left) {
+    // If the currentNode is not nil
+    if (currentNode) {
+        // Call printInorderRecursively on left child
         [self printInorderRecursively:currentNode.left];
-    }
         
-    // Print the value of the current node
-    NSLog(@"%ld: %@ ", currentNode.objectID, currentNode.data);
-    
-    // Call printInorderRecursively on right child
-    if (currentNode.right) {
+        // Print the value of the current node
+        NSLog(@"%ld: %@ ", currentNode.objectID, currentNode.data);
+        
+        // Call printInorderRecursively on right child
         [self printInorderRecursively:currentNode.right];
     }
 }
@@ -264,18 +263,40 @@ typedef NS_ENUM(NSInteger, ChildType) {
     [self printInorderRecursively:self.root];
 }
 
+// Adds data to the parameter retArray in order. Array is passed by reference so data is simply added at the correct place in the recursive tree rather than returning an array recursively which would be much more intensive computationally
+- (void)addDataToReturnArray:(NSMutableArray *)retArray recursively:(BinaryTreeNode *)currentNode {
+    // If the currentNode is not nil
+    if (currentNode) {
+        // First go left
+        [self addDataToReturnArray:retArray recursively:currentNode.left];
+        
+        // Then add the data from the currentNode to the array
+        [retArray addObject: currentNode.data];
+        
+        // Then go right
+        [self addDataToReturnArray:retArray recursively:currentNode.right];
+    }
+}
+
+// Returns an NSArray of data from the tree inorder
+- (NSMutableArray *)returnDataInOrder {
+    NSMutableArray *retData = [[NSMutableArray alloc] init];
+     [self addDataToReturnArray:retData recursively:self.root];
+    
+    return retData;
+}
+
 // Print the tree preorder
 - (void)printPreorderRecursively:(BinaryTreeNode *)currentNode {
-    // Print the value of the current node
-    NSLog(@"%ld: %@ ", currentNode.objectID, currentNode.data);
-    
-    // Call printPreorderRecursively on left child
-    if (currentNode.left) {
+    // If the currentNode is not nil
+    if (currentNode) {
+        // Print the value of the current node
+        NSLog(@"%ld: %@ ", currentNode.objectID, currentNode.data);
+        
+        // Call printPreorderRecursively on left child
         [self printPreorderRecursively:currentNode.left];
-    }
-    
-    // Call printPreorderRecursively on right child
-    if (currentNode.right) {
+        
+        // Call printPreorderRecursively on right child
         [self printPreorderRecursively:currentNode.right];
     }
 }
@@ -286,18 +307,17 @@ typedef NS_ENUM(NSInteger, ChildType) {
 
 // Print the tree postorder
 - (void)printPostorderRecursively:(BinaryTreeNode *)currentNode {
-    // Call printPostorderRecursively on left child
-    if (currentNode.left) {
+    // If the currentNode is not nil
+    if (currentNode) {
+        // Call printPostorderRecursively on left child
         [self printPostorderRecursively:currentNode.left];
-    }
-    
-    // Call printPostorderRecursively on right child
-    if (currentNode.right) {
+        
+        // Call printPostorderRecursively on right child
         [self printPostorderRecursively:currentNode.right];
+        
+        // Print the value of the current node
+        NSLog(@"%ld: %@ ", currentNode.objectID, currentNode.data);
     }
-    
-    // Print the value of the current node
-    NSLog(@"%ld: %@ ", currentNode.objectID, currentNode.data);
 }
 - (void)printPostorder {
     // Call printPostorderRecursively on the root
