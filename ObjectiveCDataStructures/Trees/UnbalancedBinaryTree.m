@@ -115,13 +115,8 @@
 }
 
 // Print data to the console for given objectID if it exists, otherwise print an error message.
-- (void)printDataAtObjectID:(NSInteger)objectID {
-    BinaryTreeNode *searchResultData = [self searchRecursivelyForObjectID:objectID throughCurrentNode:self.root];
-    if (searchResultData) {
-        NSLog(@"Data associated with objectID #%ld: %@", objectID, searchResultData);
-    } else {
-        NSLog(@"No match found for object ID #%ld", objectID);
-    }
+- (NSString *)getDataAtObjectID:(NSInteger)objectID {
+    return [self searchRecursivelyForObjectID:objectID throughCurrentNode:self.root];
 }
 
 typedef NS_ENUM(NSInteger, ChildType) {

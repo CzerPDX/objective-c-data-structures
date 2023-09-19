@@ -16,6 +16,6 @@
 - (void)printInorder;
 - (void)printPreorder;
 - (void)printPostorder;
-- (void)printDataAtObjectID:(NSInteger)objectID;
+- (NSString *)getDataAtObjectID:(NSInteger)objectID;
 
 @end

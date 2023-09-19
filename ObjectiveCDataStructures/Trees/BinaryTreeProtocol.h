@@ -29,7 +29,7 @@ typedef NS_ENUM(NSInteger, DeleteResult) {
 - (void)printInorder;
 - (void)printPreorder;
 - (void)printPostorder;
-- (NSString *)printDataAtObjectID:(NSInteger)objectID;
+- (NSString *)getDataAtObjectID:(NSInteger)objectID;
 @end
 
 NS_ASSUME_NONNULL_END
