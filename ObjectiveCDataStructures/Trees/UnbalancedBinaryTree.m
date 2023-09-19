@@ -129,6 +129,22 @@ typedef NS_ENUM(NSInteger, ChildType) {
 };
 
 // Returns the inorder successor from the right-tree
+/*
+ Cases:
+ Successor has:
+ - right child
+    - If successor is left child
+        - Set parent left to successor's right child
+    - If successor is right child
+        - Set parent right to successor's right child
+ - no children
+     - If successor is left child
+        - Set parent left to nil
+     - If successor is right child
+        - Set parent right to nil
+ 
+ If the successor has no children the parent's pointer can still just point to the successor's pointers because it should also be nil. So I basically always want to set the parent pointer to the right child.
+ */
 - (BinaryTreeNode *)inorderSuccessorFromRightTree:(BinaryTreeNode *)currentNode andAdjustParentWhereRemoved:(BinaryTreeNode *)parentNode byChildType:(ChildType)childType {
     // If there is a left child this isn't the inorder successor
     if (currentNode.left) {
@@ -137,33 +153,24 @@ typedef NS_ENUM(NSInteger, ChildType) {
     }
     // If there is no left child then this is the inorder successor
     else {
-        // If there's a right node it needs to be connected to the parentNode
-        if (currentNode.right) {
-            if (childType == ChildTypeLeft) {
-                parentNode.left = currentNode.right;
-            } else if (childType == ChildTypeRight) {
-                parentNode.right = currentNode.right;
-            } else {
-                self.root = currentNode.right;
-            }
-            return currentNode;
+        // Whether or not the successor has a right child, the pointer that once led to this currentNode from the parent can be set to the currentNode's right child.
+        // If there is another node at the end of that pointer it will set the parent pointer to that node as it should.
+        // If it is set to nil this will set the parent poitner to nil as it should. Voila!
+        if (childType == ChildTypeLeft) {
+            parentNode.left = currentNode.right;
+        } else {
+            parentNode.right = currentNode.right;
         }
-        // If there is neither a left nor a right child then parent poitner can be nil
-        else {
-            if (childType == ChildTypeLeft) {
-                parentNode.left = nil;
-            } else {
-                parentNode.right = nil;
-            }
-            return currentNode;
-        }
+        return currentNode;
     }
 }
 
 // Replace the currentNode with its inorder successor
 -(BinaryTreeNode *)replaceWithInorderSuccessor:(BinaryTreeNode *)currentNode andAdjustParentWhereRemoved:(BinaryTreeNode *)parentNode byChildType:(ChildType)childType {
     
+    // If the current node has a right child then get the inorder successor from the right sub-tree
     if (currentNode.right) {
+        // Call the function that returns the inorder Successor node and cleans up the parent nodes child pointer that points to it.
         BinaryTreeNode *inorderSuccessor = [self inorderSuccessorFromRightTree:currentNode.right andAdjustParentWhereRemoved:currentNode byChildType:ChildTypeRight];
         inorderSuccessor.left = currentNode.left;
         
@@ -180,7 +187,7 @@ typedef NS_ENUM(NSInteger, ChildType) {
         }
         return inorderSuccessor;
     } else if (currentNode.left) {
-        // If there is no right child but there is a left one just replace the current one with the left child
+        // If there is no right child but there is a left one just replace the current node with its left child
         
         if (childType == ChildTypeLeft) {
             parentNode.left = currentNode.left;

@@ -27,12 +27,12 @@ int main(int argc, const char * argv[]) {
         
         // Add some more quotes from Dune to the binary tree (intentionally added out of order)
         [aUnbalancedBinaryTree addObjectByID:8 andObjectData:@"Only I will remain."];
-        [aUnbalancedBinaryTree addObjectByID:5 andObjectData:@"I will permit it to pass over me and through me."];
+//        [aUnbalancedBinaryTree addObjectByID:5 andObjectData:@"I will permit it to pass over me and through me."];
         [aUnbalancedBinaryTree addObjectByID:1 andObjectData:@"I must not fear."];
-        [aUnbalancedBinaryTree addObjectByID:7 andObjectData:@"Where the fear has gone there will be nothing."];
-        [aUnbalancedBinaryTree addObjectByID:6 andObjectData:@"And when it has gone past I will turn the inner eye to see its path."];
-        [aUnbalancedBinaryTree addObjectByID:2 andObjectData:@"Fear is the mind-killer."];
-        [aUnbalancedBinaryTree addObjectByID:4 andObjectData:@"I will face my fear."];
+//        [aUnbalancedBinaryTree addObjectByID:7 andObjectData:@"Where the fear has gone there will be nothing."];
+//        [aUnbalancedBinaryTree addObjectByID:6 andObjectData:@"And when it has gone past I will turn the inner eye to see its path."];
+//        [aUnbalancedBinaryTree addObjectByID:2 andObjectData:@"Fear is the mind-killer."];
+//        [aUnbalancedBinaryTree addObjectByID:4 andObjectData:@"I will face my fear."];
         
         // Print the quote's lines in order with inorder traversal
         NSLog(@"Before removal:");
