@@ -173,7 +173,7 @@ typedef NS_ENUM(NSInteger, ChildType) {
 }
 
 // Replace the currentNode with its inorder successor
--(BinaryTreeNode *)replaceWithInorderSuccessor:(BinaryTreeNode *)currentNode andAdjustParentWhereRemoved:(BinaryTreeNode *)parentNode byChildType:(ChildType)childType {
+-(BOOL)replaceWithInorderSuccessor:(BinaryTreeNode *)currentNode andAdjustParentWhereRemoved:(BinaryTreeNode *)parentNode byChildType:(ChildType)childType {
     
     // If the current node has a right child then get the inorder successor from the right sub-tree
     if (currentNode.right) {
@@ -194,7 +194,6 @@ typedef NS_ENUM(NSInteger, ChildType) {
         } else {
             self.root = inorderSuccessor;
         }
-        return inorderSuccessor;
     } else if (currentNode.left) {
         // If there is no right child but there is a left one just replace the current node with its left child
         
@@ -205,7 +204,6 @@ typedef NS_ENUM(NSInteger, ChildType) {
         } else {
             self.root = currentNode.left;
         }
-        return currentNode.left;
     } else {
         // If there is no left or right child then just set the parent pointer to nil to release the memory
         if (childType == ChildTypeLeft) {
@@ -215,13 +213,16 @@ typedef NS_ENUM(NSInteger, ChildType) {
         } else {
             self.root = nil;
         }
-        return nil;
     }
+    
+    // Eventually would like to update this with actual error handling which will mean this will not just return YES, but, for now, if the software gets to this line it is assumed to have successfully replaced the currentNode with its inorder successor
+    return YES;
 }
 
 // Find node to delete by its objectID
--(BOOL)findNodeToDeleteByID:(NSInteger)objectID throughCurrentNode:(BinaryTreeNode *)currentNode andAdjustParent:(BinaryTreeNode *)parentNode byChildType:(ChildType)childType {
+-(DeleteResult)findNodeToDeleteByID:(NSInteger)objectID throughCurrentNode:(BinaryTreeNode *)currentNode andAdjustParent:(BinaryTreeNode *)parentNode byChildType:(ChildType)childType {
     
+    // If the currentNode is not nil
     if (currentNode) {
         // if less, go left. If more, go right. If equal, begin removal processs. If non-existent return NO
         if (objectID < currentNode.objectID) {
@@ -232,23 +233,23 @@ typedef NS_ENUM(NSInteger, ChildType) {
             return [self findNodeToDeleteByID:objectID throughCurrentNode:currentNode.right andAdjustParent:currentNode byChildType:ChildTypeRight];
         } else {
             // Found objectID to remove. Begin removal process
-            NSLog(@"Found node to delete. ID: %ld and data: %@", currentNode.objectID, currentNode.data);
             [self replaceWithInorderSuccessor:currentNode andAdjustParentWhereRemoved:parentNode byChildType:childType];
                 
-            return YES;
+            return SuccessfullyDeleted;
         }
-    } else {
-        NSLog(@"ID: %ld does not exist", objectID);
-        return NO;
+    }
+    // If the currentNode is nil that means the objectID wasn't found in the tree
+    else {
+        return SuccessfullyDeletedNotFound;
     }
 }
 
-
-- (BOOL)deleteObjectByID:(NSInteger)objectID {
-    [self findNodeToDeleteByID:objectID throughCurrentNode:self.root andAdjustParent:nil byChildType:ChildTypeRoot];
-    return NO;
+// Remove an object from the tree by its object ID
+- (DeleteResult)deleteObjectByID:(NSInteger)objectID {
+    return [self findNodeToDeleteByID:objectID throughCurrentNode:self.root andAdjustParent:nil byChildType:ChildTypeRoot];
 }
 
+// Print the tree inorder
 - (void)printInorderRecursively:(BinaryTreeNode *)currentNode {
     // Call printInorderRecursively on left child
     if (currentNode.left) {
@@ -263,12 +264,12 @@ typedef NS_ENUM(NSInteger, ChildType) {
         [self printInorderRecursively:currentNode.right];
     }
 }
-
 - (void)printInorder {
     // Call printInorderRecursively on the root
     [self printInorderRecursively:self.root];
 }
 
+// Print the tree preorder
 - (void)printPreorderRecursively:(BinaryTreeNode *)currentNode {
     // Print the value of the current node
     NSLog(@"%ld: %@ ", currentNode.objectID, currentNode.data);
@@ -283,12 +284,12 @@ typedef NS_ENUM(NSInteger, ChildType) {
         [self printPreorderRecursively:currentNode.right];
     }
 }
-
 - (void)printPreorder {
     // Call printInorderRecursively on the root
     [self printPreorderRecursively:self.root];
 }
 
+// Print the tree postorder
 - (void)printPostorderRecursively:(BinaryTreeNode *)currentNode {
     // Call printPostorderRecursively on left child
     if (currentNode.left) {
@@ -303,12 +304,9 @@ typedef NS_ENUM(NSInteger, ChildType) {
     // Print the value of the current node
     NSLog(@"%ld: %@ ", currentNode.objectID, currentNode.data);
 }
-
 - (void)printPostorder {
     // Call printPostorderRecursively on the root
     [self printPostorderRecursively:self.root];
 }
-
-
 
 @end

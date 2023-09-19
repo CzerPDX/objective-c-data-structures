@@ -19,11 +19,6 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-}
-
 // Override the testInvocations function for the base class only so tests don't run for the base class.
 + (NSArray *)testInvocations {
     return (self == [BaseBinaryTreeTests class]) ? [NSArray array] : [super testInvocations];

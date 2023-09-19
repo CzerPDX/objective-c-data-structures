@@ -15,11 +15,17 @@ typedef NS_ENUM(NSInteger, AddResult) {
     FailedAddDuplicate
 };
 
+typedef NS_ENUM(NSInteger, DeleteResult) {
+    SuccessfullyDeleted,
+    FailedDeleteError,
+    SuccessfullyDeletedNotFound // If value is not present return successfully deleted (because it's not in the tree, which is the intended outcome) but not found.
+};
+
 // Protocol that defines the interface for all binary trees
 @protocol BinaryTreeProtocol <NSObject>
 
 - (AddResult)addObjectByID:(NSInteger)objectID andObjectData:(id)data;
-- (BOOL)deleteObjectByID:(NSInteger)objectID;
+- (DeleteResult)deleteObjectByID:(NSInteger)objectID;
 - (void)printInorder;
 - (void)printPreorder;
 - (void)printPostorder;

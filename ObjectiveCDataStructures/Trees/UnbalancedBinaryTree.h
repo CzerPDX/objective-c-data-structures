@@ -12,7 +12,7 @@
 @interface UnbalancedBinaryTree : NSObject <BinaryTreeProtocol>
 
 - (AddResult)addObjectByID:(NSInteger)objectID andObjectData:(id)objectData;
-- (BOOL)deleteObjectByID:(NSInteger)objectID;
+- (DeleteResult)deleteObjectByID:(NSInteger)objectID;
 - (void)printInorder;
 - (void)printPreorder;
 - (void)printPostorder;
