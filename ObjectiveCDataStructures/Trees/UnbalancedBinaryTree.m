@@ -271,7 +271,7 @@ typedef NS_ENUM(NSInteger, ChildType) {
         [self addDataToReturnArray:retArray recursively:currentNode.left];
         
         // Then add the data from the currentNode to the array
-        [retArray addObject: currentNode.data];
+        [retArray addObject:currentNode.data];
         
         // Then go right
         [self addDataToReturnArray:retArray recursively:currentNode.right];
