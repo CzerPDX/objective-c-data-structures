@@ -47,6 +47,10 @@ So far, only one binary tree is in-progress (`UnbalancedBinaryTree`) (though mor
 ### UnbalancedBinaryTree
 This is the simplest binary tree. Nodes are added as needed and the tree is not balanced. This means that in the worst-case scenario this has the same structure as a linear linked list with extra overhead, but will serve as a first step before doing some self-balancing binary trees (such as `AVL` or `red-black`).
 
+
+### Testing
+Testing for the trees is structured similarly to testing for the stacks. There is a `BaseBinaryTreeTests` class where the tests are defined using the protocol that all trees should follow. Though there are no other tree types except `UnbalancedBinaryTree` as of the time of this writing, if other trees require additional tests that are unique to their structure, they can be added to their respective subclass tests.
+
 # Development Environment
 Due to the constraints of developing on a late 2012 iMac, some of my code may incorporate older practices or APIs. For clarity and transparency, I've outlined my development environment details below.
 
