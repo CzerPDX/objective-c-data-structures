@@ -1,5 +1,5 @@
 # objective-c-data-structures
-This `Objective-C` program implements two data structures: stacks and binary trees. It was developed in a `MacOS` environment using the `Xcode` IDE.
+This `Objective-C` program implements two data structures: stacks and binary trees. It was developed in a `macOS` environment using the `Xcode` IDE.
 
 ## Stacks
 There are two stacks implemented in `objective-c-data-structures` and both use the same `protocol` to standaridze their interfaces:
